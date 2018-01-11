@@ -20,4 +20,8 @@ public class OutputFormatterFactory {
                 return null;
         }
     }
+
+    public OutputFormatter createByFormat() {
+        return new TableOutputFormatter();
+    }
 }
