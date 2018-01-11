@@ -3,13 +3,15 @@ package com.monzag;
 import com.monzag.controllers.SimpleCsvConverter;
 import com.monzag.exceptions.FileNotFoundException;
 import com.monzag.models.FileType;
+import com.monzag.service.FileReader;
 
 import java.io.File;
 
 public class ConverterApplication
 {
     public static void main( String[] args ) {
-        SimpleCsvConverter csvConverter = new SimpleCsvConverter();
+        FileReader reader = new FileReader();
+        SimpleCsvConverter csvConverter = new SimpleCsvConverter(reader);
 
         try {
             if (args.length == 1) {
