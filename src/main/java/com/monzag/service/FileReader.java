@@ -1,11 +1,13 @@
 package com.monzag.service;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 
 public class FileReader {
 
-    public String readData(File file) {
-
-        return "Read data from file";
+    public InputStream readData(File file) throws FileNotFoundException{
+        return new FileInputStream(file);
     }
 }
