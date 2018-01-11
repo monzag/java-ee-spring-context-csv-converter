@@ -1,6 +1,8 @@
 package com.monzag.service;
 
+import java.io.InputStream;
+
 public interface OutputFormatter {
 
-    void printToConsole(String data);
+    void printToConsole(InputStream inputStream);
 }
