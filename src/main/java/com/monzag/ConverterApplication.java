@@ -3,8 +3,7 @@ package com.monzag;
 import com.monzag.controllers.SimpleCsvConverter;
 import com.monzag.exceptions.InputNotDefinedException;
 import com.monzag.models.FileType;
-import com.monzag.service.FileReader;
-import com.monzag.service.OutputFormatterFactory;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -14,9 +13,8 @@ public class ConverterApplication
 {
     public static void main( String[] args ) {
         Path path;
-        FileReader reader = new FileReader();
-        OutputFormatterFactory offactory = new OutputFormatterFactory();
-        SimpleCsvConverter csvConverter = new SimpleCsvConverter(reader, offactory);
+        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+        SimpleCsvConverter csvConverter = (SimpleCsvConverter) ctx.getBean("simpleCsvConverter");
 
         try {
             if (args.length == 1) {
