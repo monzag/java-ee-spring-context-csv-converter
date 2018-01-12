@@ -1,27 +1,40 @@
 package com.monzag.service;
 
 import com.monzag.models.FileType;
+import org.springframework.stereotype.Component;
 
+@Component
 public class OutputFormatterFactory {
 
     public OutputFormatter createByFormat(FileType outputFormat) {
+        OutputFormatter outputFormatter = null;
+
+        if (outputFormat == null) {
+            return new TableOutputFormatter();
+        }
 
         switch (outputFormat) {
             case CSV:
-                return new TableOutputFormatter();
+                outputFormatter = new TableOutputFormatter();
+                break;
 
             case XML:
-                return new XmlOutputFormatter();
+                outputFormatter = new XmlOutputFormatter();
+                break;
 
             case JSON:
-                return new JsonOutputFormatter();
+                outputFormatter = new JsonOutputFormatter();
+                break;
 
             default:
-                return null;
+                System.out.println("incorrect type");
+                break;
         }
+
+        return outputFormatter;
     }
 
-    public OutputFormatter createByFormat() {
-        return new TableOutputFormatter();
-    }
+//    public OutputFormatter createByFormat() {
+//        return new TableOutputFormatter();
+//    }
 }
