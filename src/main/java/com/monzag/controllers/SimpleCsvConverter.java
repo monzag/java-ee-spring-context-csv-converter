@@ -5,7 +5,8 @@ import com.monzag.service.FileReader;
 import com.monzag.service.OutputFormatter;
 import com.monzag.service.OutputFormatterFactory;
 
-import java.io.File;
+import java.io.IOException;
+import java.nio.file.Path;
 
 public class SimpleCsvConverter {
 
@@ -17,13 +18,15 @@ public class SimpleCsvConverter {
         this.outputFormatterFactory = outputFormatterFactory;
     }
 
-    public void convert(File file) {
+    public void convert(Path path) throws IOException {
         OutputFormatter outputFormatter = outputFormatterFactory.createByFormat();
-        System.out.println("convert from csv file");
+        outputFormatter.printToConsole(reader.readData(path.toFile()));
+        System.out.println("done from csv file");
     }
 
-    public void convert(File file, FileType type) {
+    public void convert(Path path, FileType type) throws IOException {
         OutputFormatter outputFormatter = outputFormatterFactory.createByFormat(type);
-        System.out.println("convert from file and type");
+        outputFormatter.printToConsole(reader.readData(path.toFile()));
+        System.out.println("done from file and type");
     }
 }
