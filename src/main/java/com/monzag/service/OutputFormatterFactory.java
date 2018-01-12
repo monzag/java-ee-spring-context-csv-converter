@@ -33,8 +33,4 @@ public class OutputFormatterFactory {
 
         return outputFormatter;
     }
-
-//    public OutputFormatter createByFormat() {
-//        return new TableOutputFormatter();
-//    }
 }
