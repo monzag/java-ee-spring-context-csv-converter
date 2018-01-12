@@ -1,7 +1,7 @@
 package com.monzag;
 
 import com.monzag.controllers.SimpleCsvConverter;
-import com.monzag.exceptions.InputNotDefinedException;
+import com.monzag.exceptions.FileInputNotDefinedException;
 import com.monzag.models.FileType;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -31,12 +31,12 @@ public class ConverterApplication {
                 path = Paths.get(args[SECOND_INDEX]).toRealPath();
 
             } else {
-                throw new InputNotDefinedException();
+                throw new FileInputNotDefinedException();
             }
 
             csvConverter.convert(path, type);
 
-        } catch (InputNotDefinedException e) {
+        } catch (FileInputNotDefinedException e) {
             System.out.println(e.getMessage());
 
         } catch (IllegalArgumentException e) {
