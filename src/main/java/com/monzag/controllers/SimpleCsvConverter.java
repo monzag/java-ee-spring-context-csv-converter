@@ -20,11 +20,6 @@ public class SimpleCsvConverter {
         this.outputFormatterFactory = outputFormatterFactory;
     }
 
-    public void convert(Path path) throws IOException {
-        OutputFormatter outputFormatter = outputFormatterFactory.createByFormat();
-        outputFormatter.printToConsole(reader.readData(path.toFile()));
-    }
-
     public void convert(Path path, FileType type) throws IOException {
         OutputFormatter outputFormatter = outputFormatterFactory.createByFormat(type);
         outputFormatter.printToConsole(reader.readData(path.toFile()));
