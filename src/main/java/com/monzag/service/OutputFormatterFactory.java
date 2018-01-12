@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 public class OutputFormatterFactory {
 
     public OutputFormatter createByFormat(FileType outputFormat) {
-        OutputFormatter outputFormatter = null;
+        OutputFormatter outputFormatter;
 
         if (outputFormat == null) {
             return new TableOutputFormatter();
@@ -27,8 +27,7 @@ public class OutputFormatterFactory {
                 break;
 
             default:
-                System.out.println("incorrect type");
-                break;
+                outputFormatter = null;
         }
 
         return outputFormatter;
