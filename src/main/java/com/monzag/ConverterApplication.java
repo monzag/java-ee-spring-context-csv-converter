@@ -40,7 +40,7 @@ public class ConverterApplication {
             System.out.println(e.getMessage());
 
         } catch (IllegalArgumentException e) {
-            System.out.println("incorrect type");
+            System.out.println("Incorrect file type");
 
         } catch (IOException e) {
             System.out.println("File not exist");
