@@ -36,6 +36,16 @@
       <artifactId>spring-context</artifactId>
       <version>4.3.13.RELEASE</version>
     </dependency>
+    <dependency>
+      <groupId>com.opencsv</groupId>
+      <artifactId>opencsv</artifactId>
+      <version>3.3</version>
+    </dependency>
+    <dependency>
+      <groupId>com.massisframework</groupId>
+      <artifactId>j-text-utils</artifactId>
+      <version>0.3.4</version>
+    </dependency>
   </dependencies>
 
   <build>
